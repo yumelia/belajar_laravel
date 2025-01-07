@@ -81,6 +81,11 @@ Route::get('/latihan/{nama}/{telpon}/{jenis}/{barang}/{jumlah}/{pembayaran}', fu
            "Telpon : ".$telpon."<br>".
             "Jenis Barang : ".$jenis."<br>".
             "Nama Barang : ".$barang."<br>".
-            "Harga : ".$harga."<br>".
-           
+            "Harga : ".$harga."<br>" ;
+});
+
+Route::get('/murid', function(){
+    $data_siswa = ['keyndra','karisa','naisa','nabila','napis'];
+
+    return view('tampil',compact('data_siswa'));
 });
