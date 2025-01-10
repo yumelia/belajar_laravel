@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\SiswasController;
+use App\Http\Controllers\ppdbsController;
+use App\Models\Barang;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,3 +93,20 @@ Route::get('/murid', function(){
 
     return view('tampil',compact('data_siswa'));
 });
+
+Route::get('/post', [PostsController::class, 'menampilkan']);
+Route::get('/barang', [PostsController::class, 'menampilkan2']);
+
+// CRUD
+Route::resource('siswa', SiswasController::class);
+Route::resource('ppdb', ppdbsController::class);
+
+
+// Route::get('/barang', function(){
+
+//     $barang = Barang::where('id',5)->get();
+//     return view('tampil_barang',compact('barang'));
+// });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
